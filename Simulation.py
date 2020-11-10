@@ -15,6 +15,7 @@ class Simulation():
         self.fn = str(fn)
         self.all_aircraft = []
         self.height_array = None
+        self.ax1 = None
 
     def get_filename(self):
 
@@ -68,26 +69,26 @@ class Simulation():
         self.height_array = np.fromfile(self.fn, np.dtype('>i2'), dimension*dimension).reshape((dimension, dimension))
         x, y = np.meshgrid(range(self.height_array.shape[0]), range(self.height_array.shape[1]))
 
-        fig = plt.figure(figsize=(15, 6))
+        fig = plt.figure(figsize=(10, 5))
         fig.suptitle("Flight Simulation", fontsize = 12, fontweight= "bold")
 
-        ax1 = fig.add_subplot(121, projection = '3d')
-        p = ax1.plot_surface(x, y, self.height_array, cmap = 'terrain')
-        ax1.set_zlim(1500, 3500)
-        ax1.set_xlabel("Latitude")
-        ax1.set_ylabel("Lonitude")
-        ax1.set_zlabel("Height (m)")
+        self.ax1 = fig.add_subplot(121, projection = '3d')
+        p = self.ax1.plot_surface(x, y, self.height_array, cmap = 'terrain')
+        self.ax1.set_zlim(1500, 3500)
+        self.ax1.set_xlabel("Latitude")
+        self.ax1.set_ylabel("Lonitude")
+        self.ax1.set_zlabel("Height (m)")
         fig.colorbar(p)
         plt.title('Terrain: ' + str(self.fn))
-
-        plt.show()
 
         return
     
     def flight_model(self, hours):
 
         flight_arr = self.height_array.copy()
+
         count = 1
+        aircraft_title = self.ax1.text2D(0.65, 0.8, "Aircraft Status", transform = plt.gcf().transFigure, fontsize = 14, color = 'black', fontweight = "bold")
 
         for aircraft in self.all_aircraft:
 
@@ -111,5 +112,7 @@ if __name__ == "__main__":
 
     sim.plot_terrain()
     sim.flight_model(10)
+
+    plt.show()
 
 
