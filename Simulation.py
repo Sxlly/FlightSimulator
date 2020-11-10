@@ -16,6 +16,7 @@ class Simulation():
         self.all_aircraft = []
         self.aircraft_count = 0
         self.avg_speed = 0
+        self.avg_alt = 0
         self.height_array = None
         self.aircraft_height = None
         self.x = None
@@ -79,6 +80,18 @@ class Simulation():
         self.avg_speed = (self.avg_speed / self.aircraft_count)
 
         return 
+    
+    def get_avg_alt(self):
+
+        self.avg_alt = 0
+
+        for aircraft in self.all_aircraft:
+
+            self.avg_alt += int(aircraft.alt)
+        
+        self.avg_alt = (self.avg_alt / self.aircraft_count)
+
+        return
 
     def create_terrain(self):
 
@@ -106,6 +119,7 @@ class Simulation():
 
         for hr in range(1, hours + 1):
 
+
             while hr == 1:
                 p = self.ax1.plot_surface(self.x, self.y, self.height_array, cmap = 'terrain')
                 self.ax1.set_zlim(1500, 3500)
@@ -118,22 +132,17 @@ class Simulation():
                 active_aircrafts = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.05, "Aircraft In AirSpace: " + str(self.aircraft_count), transform = plt.gcf().transFigure, fontsize = 12)
                 avg_speed = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.10, "Average Aircraft Speed: " + str(self.avg_speed), transform = plt.gcf().transFigure, fontsize = 12)
                 curr_aircraft = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.15, "Current Aircraft: " + str(None), transform = plt.gcf().transFigure, fontsize = 12)
+                avg_alt = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.20, "Average Aircraft Altitude: " + str(self.avg_alt), transform = plt.gcf().transFigure, fontsize = 12)
                 break
             
 
-            self.ax1.pause(0.5)
-
             for aircraft in self.all_aircraft:
+
+                plt.pause(0.5)
 
                 self.aircraft_height[aircraft.pos[0] + aircraft.speed][aircraft.pos[1] + aircraft.speed]
 
-
-
-                
-        
-
-
-            
+                curr_aircraft.set_text("Current Aircraft: " + str(aircraft.name))   
 
         return
 
