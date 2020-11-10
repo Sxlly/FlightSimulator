@@ -60,7 +60,7 @@ class Simulation():
 
         return
 
-    def plot_terrain(self):
+    def create_terrain(self):
 
         """Method Supports Plotting and Visual Plot of HGT Terrain file"""
 
@@ -79,19 +79,20 @@ class Simulation():
         plot_x_dim = 0.6
         plot_y_dim = 0.8
 
-
         self.ax1 = fig.add_subplot(121, projection = '3d')
 
-        
-        p = self.ax1.plot_surface(x, y, self.height_array, cmap = 'terrain')
-        self.ax1.set_zlim(1500, 3500)
-        self.ax1.set_xlabel("Latitude")
-        self.ax1.set_ylabel("Lonitude")
-        self.ax1.set_zlabel("Height (m)")
-        fig.colorbar(p)
-        plt.title('Terrain: ' + str(self.fn))
+        for hr in range(1, hours + 1):
 
-        aircraft_title = self.ax1.text2D(plot_x_dim, plot_y_dim, "Aircraft Status", transform = plt.gcf().transFigure, fontsize = 12, fontweight = 'bold')
+            while hr == 1:
+                p = self.ax1.plot_surface(self.x, self.y, self.height_array, cmap = 'terrain')
+                self.ax1.set_zlim(1500, 3500)
+                self.ax1.set_xlabel("Latitude")
+                self.ax1.set_ylabel("Lonitude")
+                self.ax1.set_zlabel("Height (m)")
+                fig.colorbar(p)
+                plt.title('Terrain: ' + str(self.fn))
+                aircraft_title = self.ax1.text2D(plot_x_dim, plot_y_dim, "Aircraft Status", transform = plt.gcf().transFigure, fontsize = 12, fontweight = 'bold')
+                break
 
         return
 
@@ -106,8 +107,8 @@ if __name__ == "__main__":
     sim.add_aircraft(num + 1)
     sim.get_aircraft(num + 1)
 
-    sim.plot_terrain()
-    sim.flight_model(10)
+    sim.create_terrain()
+    sim.run_simulation(10)
 
     plt.show()
 
