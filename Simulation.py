@@ -14,6 +14,7 @@ class Simulation():
     def __init__(self, fn):
         self.fn = str(fn)
         self.all_aircraft = []
+        self.aircraft_count = 0
         self.height_array = None
         self.x = None
         self.y = None
@@ -51,12 +52,12 @@ class Simulation():
 
     def get_aircraft(self, num):
         
-        count = 1
+        self.aircraft_count = 0
 
         for aircraft in self.all_aircraft:
 
-            print("Aircraft " + str(count) + ": " + "Name: ", aircraft.name + ", " + "Altitude: ", str(aircraft.alt) + ", " + "Speed: ", str(aircraft.speed) + ", " + "Position: ", str(aircraft.pos)) 
-            count += 1
+            print("Aircraft " + str(self.aircraft_count) + ": " + "Name: ", aircraft.name + ", " + "Altitude: ", str(aircraft.alt) + ", " + "Speed: ", str(aircraft.speed) + ", " + "Position: ", str(aircraft.pos)) 
+            self.aircraft_count += 1
 
         return
 
@@ -92,7 +93,9 @@ class Simulation():
                 fig.colorbar(p)
                 plt.title('Terrain: ' + str(self.fn))
                 aircraft_title = self.ax1.text2D(plot_x_dim, plot_y_dim, "Aircraft Status", transform = plt.gcf().transFigure, fontsize = 12, fontweight = 'bold')
+                active_aircrafts = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.05, "Aircraft In AirSpace: " + str(self.aircraft_count), transform = plt.gcf().transFigure, fontsize = 12)
                 break
+
 
         return
 
