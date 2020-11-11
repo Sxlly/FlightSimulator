@@ -134,7 +134,8 @@ class Simulation():
                 avg_speed = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.10, "Average Aircraft Speed: " + str(self.avg_speed), transform = plt.gcf().transFigure, fontsize = 12)
                 curr_aircraft = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.15, "Current Aircraft: " + str(None), transform = plt.gcf().transFigure, fontsize = 12)
                 avg_alt = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.20, "Average Aircraft Altitude: " + str(self.avg_alt), transform = plt.gcf().transFigure, fontsize = 12)
-                terrain_cols = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.25, "Terrain Collisions: " + str(False), transform = plt.gcf().transFigure, fontsize = 12, color = 'green')
+                terrain_cols_text = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.25, "Terrain Collisions: ", transform = plt.gcf().transFigure, fontsize = 12, color = 'black')
+                terrain_cols_boo = self.ax1.text2D(plot_x_dim + 0.15, plot_y_dim - 0.25, str(False), transform = plt.gcf().transFigure, fontsize = 12, color = 'green')
 
 
 
@@ -150,8 +151,7 @@ class Simulation():
 
                 if (aircraft.alt <= int(curr_pos)):
 
-                    terrain_cols.set_text("Terrain Collision: " + str(True))
-                    terrain_cols.set_color('red')
+                    terrain_cols_boo.set_color('red')
                     pass
 
                 curr_aircraft.set_text("Current Aircraft: " + str(aircraft.name))   
