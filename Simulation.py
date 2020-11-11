@@ -14,6 +14,8 @@ class Simulation():
     def __init__(self, fn):
         self.fn = str(fn)
         self.all_aircraft = []
+        self.terrain_col_list = []
+        self.aircraft_col_list = []
         self.aircraft_count = 0
         self.avg_speed = 0
         self.avg_alt = 0
@@ -64,7 +66,7 @@ class Simulation():
 
         for aircraft in self.all_aircraft:
 
-            print("Aircraft " + str(self.aircraft_count) + ": " + "Name: ", aircraft.name + ", " + "Altitude: ", str(aircraft.alt) + ", " + "Speed: ", str(aircraft.speed) + ", " + "Position: ", str(aircraft.pos)) 
+            print("Aircraft " + str(self.aircraft_count + 1) + ": " + "Name: ", aircraft.name + ", " + "Altitude: ", str(aircraft.alt) + ", " + "Speed: ", str(aircraft.speed) + ", " + "Position: ", str(aircraft.pos)) 
             self.aircraft_count += 1
 
         return
@@ -122,6 +124,7 @@ class Simulation():
 
 
             while hr == 1:
+
                 p = self.ax1.plot_surface(self.x, self.y, self.height_array, cmap = 'terrain')
                 self.ax1.set_zlim(1500, 3500)
                 self.ax1.set_xlabel("Latitude")
@@ -137,9 +140,6 @@ class Simulation():
                 terrain_cols_text = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.25, "Terrain Collisions: ", transform = plt.gcf().transFigure, fontsize = 12, color = 'black')
                 terrain_cols_boo = self.ax1.text2D(plot_x_dim + 0.15, plot_y_dim - 0.25, str(False), transform = plt.gcf().transFigure, fontsize = 12, color = 'green')
 
-
-
-
                 break
             
 
@@ -148,10 +148,16 @@ class Simulation():
                 plt.pause(0.75)
 
                 curr_pos = self.aircraft_height[aircraft.pos[0]][aircraft.pos[1] + aircraft.speed]
+                curr_x = aircraft.pos[0]
+                curr_y = aircraft.pos[1] + aircraft.speed
 
                 if (aircraft.alt <= int(curr_pos)):
 
+                    terrain_cols_boo.set_text(str(True))
                     terrain_cols_boo.set_color('red')
+
+                    self.terrain_col_list.append([str(aircraft.name), str((curr_x, curr_y))])
+
                     pass
 
                 curr_aircraft.set_text("Current Aircraft: " + str(aircraft.name))   
@@ -173,5 +179,7 @@ if __name__ == "__main__":
     sim.run_simulation(10)
 
     plt.show()
+
+    print(sim.terrain_col_list)
 
 
