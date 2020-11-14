@@ -12,6 +12,7 @@ plt.style.use("fivethirtyeight")
 class Simulation():
 
     def __init__(self, fn):
+        
         self.fn = str(fn)
         self.all_aircraft = []
         self.terrain_col_list = []
@@ -137,8 +138,9 @@ class Simulation():
                 avg_speed = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.10, "Average Aircraft Speed: " + str(self.avg_speed), transform = plt.gcf().transFigure, fontsize = 12)
                 curr_aircraft = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.15, "Current Aircraft: " + str(None), transform = plt.gcf().transFigure, fontsize = 12)
                 avg_alt = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.20, "Average Aircraft Altitude: " + str(self.avg_alt), transform = plt.gcf().transFigure, fontsize = 12)
-                terrain_cols_text = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.25, "Terrain Collisions: ", transform = plt.gcf().transFigure, fontsize = 12, color = 'black')
+                terrain_cols_text = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.25, "Terrain Collision: ", transform = plt.gcf().transFigure, fontsize = 12, color = 'black')
                 terrain_cols_boo = self.ax1.text2D(plot_x_dim + 0.15, plot_y_dim - 0.25, str(False), transform = plt.gcf().transFigure, fontsize = 12, color = 'green')
+                curr_pos_aircraft = self.ax1.text2D(plot_x_dim + 0.15, plot_y_dim - 0.15, "Position: " + str(None), transform = plt.gcf()transFigure, fontsize = 12, color = 'black')
 
                 break
             
