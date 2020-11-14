@@ -4,12 +4,16 @@ import math
 import time
 import os
 import sys
-
 from main import Aircraft
 
+"""Passing Style Command To Matplotlib"""
 plt.style.use("fivethirtyeight")
 
 class Simulation():
+
+    """Driver Class"""
+    """Top Level Class **Inheritance == NULL**"""
+    """Associating with: main.py>>Aircraft Object Class"""
 
     def __init__(self, fn):
 
@@ -143,7 +147,8 @@ class Simulation():
                 curr_pos_aircraft = self.ax1.text2D(plot_x_dim + 0.15, plot_y_dim - 0.15, "Position: " + str(None), transform = plt.gcf().transFigure, fontsize = 12, color = 'black')
 
                 for aircraft in self.all_aircraft:
-
+                    
+                    #Pre Setting X,Y Coordinates For Each Aircraft
                     curr_x = aircraft.pos[0]
                     curr_y = aircraft.pos[1]
 
