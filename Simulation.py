@@ -17,18 +17,18 @@ class Simulation():
 
     def __init__(self, fn):
 
-        self.fn = str(fn)
-        self.all_aircraft = []
-        self.terrain_col_list = []
-        self.aircraft_col_list = []
-        self.aircraft_count = 0
-        self.avg_speed = 0
-        self.avg_alt = 0
-        self.height_array = None
-        self.aircraft_height = None
-        self.x = None
-        self.y = None
-        self.ax1 = None
+        self.fn = str(fn) #passing given file name of dtype string to class variable
+        self.all_aircraft = [] #names of all current aircraft in list form
+        self.terrain_col_list = [] #all aircraft & terrain collisions in list form
+        self.aircraft_col_list = [] #all aircraft & aircraft collisions in lsit form
+        self.aircraft_count = 0 #total amount of aircraft in airspace 
+        self.avg_speed = 0 #average speed of aircraft in airspace
+        self.avg_alt = 0 #average altitude of aircraft in airspace
+        self.height_array = None #hgt height array passed to class variable 
+        self.aircraft_height = None #copy of hgt height array for flight model mechanics 
+        self.x = None #current x coordinate 
+        self.y = None #current y coordinate 
+        self.ax1 = None #subplot axis 1
 
 
     def get_filename(self):
