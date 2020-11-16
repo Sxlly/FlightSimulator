@@ -159,7 +159,12 @@ class Simulation():
 
                 plt.pause(0.75)
 
+                #Pre Setting X,Y Coordinates For Each Aircraft
+                curr_x = aircraft.pos[0]
+                curr_y = aircraft.pos[1]
+
                 curr_y = curr_y + aircraft.speed
+                curr_x = curr_x
                 curr_pos = self.aircraft_height[curr_x][curr_y + aircraft.speed]
 
                 if (aircraft.alt <= int(curr_pos)):
@@ -171,7 +176,13 @@ class Simulation():
 
                     pass
 
-                curr_aircraft.set_text("Current Aircraft: " + str(aircraft.name))   
+                curr_aircraft.set_text("Current Aircraft: " + str(aircraft.name))
+                curr_pos_aircraft.set_text("Position: " + str((curr_x, curr_y)))
+
+
+
+
+                
 
         return
 
