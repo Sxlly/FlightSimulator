@@ -144,7 +144,7 @@ class Simulation():
                 avg_alt = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.20, "Average Aircraft Altitude: " + str(self.avg_alt), transform = plt.gcf().transFigure, fontsize = 12)
                 terrain_cols_text = self.ax1.text2D(plot_x_dim, plot_y_dim - 0.25, "Terrain Collision: ", transform = plt.gcf().transFigure, fontsize = 12, color = 'black')
                 terrain_cols_boo = self.ax1.text2D(plot_x_dim + 0.15, plot_y_dim - 0.25, str(False), transform = plt.gcf().transFigure, fontsize = 12, color = 'green')
-                curr_pos_aircraft = self.ax1.text2D(plot_x_dim + 0.15, plot_y_dim - 0.15, "Position: " + str(None), transform = plt.gcf().transFigure, fontsize = 12, color = 'black')
+                curr_pos_aircraft = self.ax1.text2D(plot_x_dim + 0.20, plot_y_dim - 0.15, "Position: " + str(None), transform = plt.gcf().transFigure, fontsize = 12, color = 'black')
 
                 for aircraft in self.all_aircraft:
                     
