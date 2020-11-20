@@ -6,7 +6,7 @@ import time
 
 class Aircraft(object):
 
-    def __init__(self, name, alt, speed, pos):
+    def __init__(self, name, alt, speed, pos, direction):
         self.name = str(name)
         self.alt = int(alt)
         self.speed = int(speed)

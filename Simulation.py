@@ -55,11 +55,13 @@ class Simulation():
             x = int(input("Enter Aircraft's Starting x coordinate:  "))
             print("\n")
             y = int(input("Enter Aircraft's Starting y coordinate:  "))
+            print("\n")
+            direction = str(input("Enter A Direction Of Flight (N/S/E/W):  "))
     
             pos = (x, y)
             obj_name = name
 
-            obj_name = Aircraft(name, alt, speed, pos)
+            obj_name = Aircraft(name, alt, speed, pos, direction)
 
             self.all_aircraft.append(obj_name)
 
