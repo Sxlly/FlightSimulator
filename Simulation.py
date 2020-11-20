@@ -160,10 +160,17 @@ class Simulation():
 
                 plt.pause(0.75)
 
+                if (aircraft.direction == "N"):
+                    curr_y = curr_y + aircraft.speed
+                    curr_x = aircraft.pos[0]
+                    curr_pos = self.aircraft_height[curr_x][curr_y]
+                    pass
 
-                curr_y = curr_y + aircraft.speed
-                curr_x = aircraft.pos[0]
-                curr_pos = self.aircraft_height[curr_x][curr_y]
+                if (aircraft.direction == "S"):
+                    curr_y = curr_y - aircraft.speed
+                    curr_x = aircraft.pos[0]
+                    curr_pos = self.aircraft_height[curr_x][curr_y]
+                    pass
 
                 if (aircraft.alt <= int(curr_pos)):
 
