@@ -11,7 +11,7 @@ class Aircraft(object):
         self.alt = int(alt)
         self.speed = int(speed)
         self.pos = tuple(pos)
-        self.direction = str(dir)
+        self.direction = str(direction)
     
     def get_name(self):
 
