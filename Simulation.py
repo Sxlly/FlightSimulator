@@ -177,6 +177,12 @@ class Simulation():
                     curr_pos = self.aircraft_height[curr_x][curr_y]
                     pass
 
+                if (aircraft.direction == "E"):
+                    curr_y = aircraft.pos[1]
+                    curr_x = curr_x + aircraft.speed
+                    curr_pos = self.aircraft_height[curr_x][curr_y]
+                    pass
+
                 if (aircraft.alt <= int(curr_pos)):
 
                     terrain_cols_boo.set_text(str(True))
