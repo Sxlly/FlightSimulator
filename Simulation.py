@@ -9,6 +9,11 @@ from main import Aircraft
 """Passing Style Command To Matplotlib"""
 plt.style.use("fivethirtyeight")
 
+
+"""Spacing Terminal Formatter Global Variable"""
+spacer = "---"
+
+
 class Simulation():
 
     """Driver Class"""
@@ -47,15 +52,15 @@ class Simulation():
         for ii in range(1, num):
 
             name = str(input("Enter Aircraft " + str(ii) + "'s " + "name: "))
-            print("\n")
+            print(spacer)
             alt = int(input("Enter Aircraft's Altitude: "))
-            print("\n")
+            print(spacer)
             speed = int(input("Enter Aircraft's Speed:  "))
-            print("\n")
+            print(spacer)
             x = int(input("Enter Aircraft's Starting x coordinate:  "))
-            print("\n")
+            print(spacer)
             y = int(input("Enter Aircraft's Starting y coordinate:  "))
-            print("\n")
+            print(spacer)
             direction = str(input("Enter A Direction Of Flight (N/S/E/W):  "))
     
             pos = (x, y)
