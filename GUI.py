@@ -19,31 +19,57 @@ class Create_Main_Window(Screen):
     height_file = ObjectProperty(None)
 
     def enter(self):
-        if (self.n_aircrafts != 0):
-            Simulation.aircraft_count = int(self.n_aircrafts.text) 
+        if (self.n_aircrafts != 0 and self.height_file):
+            Simulation.aircraft_count = int(self.n_aircrafts.text)
+            Simulation.fn = self.height_file.text
 
             self.reset()
 
-            sm.current = "enter"
+            sm.current = "Enter"
         
         else:
             invalid_aircraft()
     
     def enter(self):
         self.reset()
-        sm.current = "enter"
+        sm.current = "Enter"
     
     def reset(self):
         self.n_aircrafts.text = ""
+        self.height_file = ""
 
-class Login_Window(Screen):
+class Aircraft_Input_Window(Screen):
 
-    n_aircrafts = ObjectProperty(None)
+    name = ObjectProperty(None)
+    alt = ObjectProperty(None)
+    speed = ObjectProperty(None)
+    pos = ObjectProperty(None)
+    direction = ObjectProperty(None)
 
-    def login_button(self):
+    def enter_aircraft_button(self):
 
-        if Simulation.add_aircraft(self.n_aircrafts.text):
-            MainWindow.current = self.n_aircrafts.text
+        if Simulation.add_aircraft_kivy(self.name.text, int(self.alt.text), int(self.speed.text), tuple(self.pos.text), self.direction.text):
+
+            MainWindow.current = self.name.text
+            self.reset()
+            sm.current = "main"
+        
+        else:
+            invalid_aircraft()
+        
+        def create_aircraft_button(self):
+            self.reset()
+            sm.current = "Create"
+        
+        def reset(self):
+            self.name.text = ""
+            self.alt.text = ""
+            self.speed.text = ""
+            self.pos.text = ""
+            self.direction.text = ""
+
+
+
 
 
 

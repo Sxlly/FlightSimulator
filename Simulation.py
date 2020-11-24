@@ -71,6 +71,16 @@ class Simulation():
             self.all_aircraft.append(obj_name)
 
         return
+    
+    def add_aircraft_kivy(self, name, alt, speed, pos, direction):
+
+        obj_name = name
+
+        obj_name = Aircraft(name, alt, speed, pos, direction)
+
+        self.all_aircraft.append(obj_name)
+
+        return
 
     def get_aircraft(self, num):
         
