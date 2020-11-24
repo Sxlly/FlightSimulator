@@ -50,7 +50,7 @@ class Aircraft_Input_Window(Screen):
 
         if Simulation.add_aircraft_kivy(self.name.text, int(self.alt.text), int(self.speed.text), tuple(self.pos.text), self.direction.text):
 
-            MainWindow.current = self.name.text
+            Main_Window.current = self.name.text
             self.reset()
             sm.current = "main"
         
@@ -67,6 +67,15 @@ class Aircraft_Input_Window(Screen):
             self.speed.text = ""
             self.pos.text = ""
             self.direction.text = ""
+
+class Main_Window(Screen):
+
+    total_aircrafts = ObjectProperty(None)
+    avg_alt = ObjectProperty(None)
+    avg_speed = ObjectProperty(None)
+    common_dir = ObjectProperty(None)
+    
+
 
 
 
