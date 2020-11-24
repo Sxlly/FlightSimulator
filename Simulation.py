@@ -103,7 +103,7 @@ class Simulation():
         
         self.avg_speed = (self.avg_speed / self.aircraft_count)
 
-        return 
+        return self.avg_speed
     
     def get_avg_alt(self):
 
@@ -115,7 +115,7 @@ class Simulation():
         
         self.avg_alt = (self.avg_alt / self.aircraft_count)
 
-        return
+        return self.avg_alt
 
     def create_terrain(self):
 
