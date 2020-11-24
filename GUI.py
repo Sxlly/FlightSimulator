@@ -14,6 +14,7 @@ class MyGrid(Widget):
 
     def n_aircrafts_button(self):
         print("Number Of Aircrafts: ", self.n_aircrafts.text)
+        self.n_aircrafts.text = ""
 
 
 
