@@ -12,6 +12,9 @@ class MyGrid(Widget):
     n_aircrafts = ObjectProperty(None)
     pass
 
+    def n_aircrafts_button(self):
+        print("Number Of Aircrafts: ", self.n_aircrafts.text)
+
 
 
 class MyApp(App):
