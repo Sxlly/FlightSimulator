@@ -73,7 +73,26 @@ class Main_Window(Screen):
     total_aircrafts = ObjectProperty(None)
     avg_alt = ObjectProperty(None)
     avg_speed = ObjectProperty(None)
-    common_dir = ObjectProperty(None)
+
+    def wipe_aircraft(self):
+        sm.current = "aircraft"
+    
+    def on_enter(self, *args):
+        ac_avg_alt = Simulation.get_avg_alt()
+        ac_avg_speed = Simulation.get_avg_speed()
+        aircraft_name_list = Simulation.all_aircraft
+        self.total_aircrafts.text = "Current Aircrafts: " + str(aircraft_name_list)
+        self.avg_alt = "Average Altitude: " + str(ac_avg_alt)
+        self.avg_speed = "Average Speed: " + str(ac_avg_speed)
+    
+class Window_Manager(self):
+    pass
+
+def invalid_aircraft():
+    pop = Popup(title = "Invalid Aircraft", content = Label(text = "Invalid Parameter!"), size_hint = (None, None), size = (400, 400))
+    pop.open()
+
+
     
 
 
