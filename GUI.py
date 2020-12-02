@@ -46,9 +46,15 @@ class MyGridLayout(GridLayout):
         num_aircrafts = self.num_aircrafts.text
         filename = self.filename.text
 
+        #printing to terminal
         print(f'Current Number Of Aircraft In Airspace {num_aircrafts} and the Terrain File Is: {filename}')
 
+        #printing to kivy current screen
+        self.add_widget(Label(text= f'Current Number Of Aircraft In Airspace {num_aircrafts} and the Terrain File Is: {filename}'))
 
+        #clear input boxs 
+        self.num_aircrafts = ""
+        self.filename = ""
 
 """App Run Class"""
 class MyApp(App):
