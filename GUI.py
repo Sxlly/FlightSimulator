@@ -20,49 +20,6 @@ from main import Aircraft
 
 class MyGridLayout(GridLayout):
 
-    def __init__(self, **kwargs):
-        
-        """Call grid layout constructor"""
-        super(MyGridLayout, self).__init__(**kwargs)
-
-        """Column Setting Within Grid"""
-        self.cols = 1
-        self.row_force_default = True
-        self.row_default_height = 145
-        self.col_force_default = True
-        self.col_default_width = 200
-
-        """Creating Second GridLayout"""
-        self.top_grid = GridLayout(
-            row_force_default = True,
-            row_default_height = 80,
-            col_force_default = True,
-            col_default_width = 200)
-        self.top_grid.cols = 2
-
-        """Input Box Setting Within Grid"""
-        self.top_grid.add_widget(Label(text= "Number Of Aircraft: "))
-        self.num_aircrafts = TextInput(multiline=False)
-        self.top_grid.add_widget(self.num_aircrafts)
-
-        self.top_grid.add_widget(Label(text= "Filename: "))
-        self.filename = TextInput(multiline=False)
-        self.top_grid.add_widget(self.filename)
-
-        """Addition Of Top Grid To App"""
-        self.add_widget(self.top_grid)
-
-        """Button Setting Within Grid"""
-        self.enter = Button(
-            text = "Enter",
-            font_size = 32,
-            size_hint_y = None,
-            height = 100,
-            size_hint_x = None,
-            width = 400 )
-        #binding button to on press command
-        self.enter.bind(on_press=self.press)
-        self.add_widget(self.enter)
 
     def press(self, instance):
         num_aircrafts = self.num_aircrafts.text

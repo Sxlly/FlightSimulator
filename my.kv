@@ -1,44 +1,20 @@
-<Button>:
-    font_size: 40
-    color: 0.3,0.6,0.7,1
-
-
-
-<FloatLayout>:
-    Button:
-        pos_hint: ("x", "y", "top", "bottom", "left", "right")
-        text: "Flight"
-    
-    Button:
-        text: "Simulator"
-
-
-
-<MyGrid>:
-
-    n_aircrafts: n_aircrafts
-
+<MyGridLayout>
     GridLayout:
         cols: 1
-        size: root.width - 200, root.height - 200
-        pos: 100, 100
 
         GridLayout:
             cols: 2
 
-            Label: 
-                text: "Flight Simulator"
-            
-            TextInput: 
+            Label:
+                text: "Number Of Aircrafts: "
+            TextInput:
                 multiline: False
             
             Label:
-                text: "Number Of Aircrafts: "
-            
+                text: "Filename: "
             TextInput:
-                id: n_aircrafts
                 multiline: False
         
         Button:
             text: "Enter"
-            on_press: root.n_aircrafts_button()
+
