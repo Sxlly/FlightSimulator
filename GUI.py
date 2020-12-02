@@ -38,7 +38,14 @@ class MyGridLayout(GridLayout):
 
         """Button Setting Within Grid"""
         self.enter = Button(text = "Enter", font_size=32)
+        #binding button to on press command
+        self.enter.bind(on_press=self.press)
         self.add_widget(self.enter)
+
+    def press(self, instance):
+        num_aircrafts = self.num_aircrafts.text
+        filename = self.filename.text 
+        
 
 
 
