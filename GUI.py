@@ -27,14 +27,22 @@ class MyGridLayout(GridLayout):
 
         """Column Setting Within Grid"""
         self.cols = 1
-        """Input Box Setting Within Grid"""
-        self.add_widget(Label(text= "Number Of Aircraft: "))
-        self.num_aircrafts = TextInput(multiline=False)
-        self.add_widget(self.num_aircrafts)
 
-        self.add_widget(Label(text= "Filename: "))
+        """Creating Second GridLayout"""
+        self.top_grid = GridLayout()
+        self.top_grid.cols = 2
+
+        """Input Box Setting Within Grid"""
+        self.top_grid.add_widget(Label(text= "Number Of Aircraft: "))
+        self.num_aircrafts = TextInput(multiline=False)
+        self.top_grid.add_widget(self.num_aircrafts)
+
+        self.top_grid.add_widget(Label(text= "Filename: "))
         self.filename = TextInput(multiline=False)
-        self.add_widget(self.filename)
+        self.top_grid.add_widget(self.filename)
+
+        """Addition Of Top Grid To App"""
+        self.add_widget(self.top_grid)
 
         """Button Setting Within Grid"""
         self.enter = Button(text = "Enter", font_size=32)
