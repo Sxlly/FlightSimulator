@@ -29,7 +29,11 @@ class MyGridLayout(GridLayout):
         self.cols = 1
 
         """Creating Second GridLayout"""
-        self.top_grid = GridLayout()
+        self.top_grid = GridLayout(
+            row_force_default = True,
+            row_default_height = 80,
+            col_force_default = True,
+            col_default_width = 200)
         self.top_grid.cols = 2
 
         """Input Box Setting Within Grid"""
@@ -45,7 +49,13 @@ class MyGridLayout(GridLayout):
         self.add_widget(self.top_grid)
 
         """Button Setting Within Grid"""
-        self.enter = Button(text = "Enter", font_size=32)
+        self.enter = Button(
+            text = "Enter",
+            font_size = 32,
+            size_hint_y = None,
+            height = 100,
+            size_hint_x = None,
+            width = 400 )
         #binding button to on press command
         self.enter.bind(on_press=self.press)
         self.add_widget(self.enter)
