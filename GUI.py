@@ -44,14 +44,9 @@ class MyGridLayout(GridLayout):
 
     def press(self, instance):
         num_aircrafts = self.num_aircrafts.text
-        filename = self.filename.text 
-        
+        filename = self.filename.text
 
-
-
-    def press(self, instance):
-        num_aircrafts = self.num.text 
-        filename = self.file.text  
+        print(f'Current Number Of Aircraft In Airspace {num_aircrafts} and the Terrain File Is: {filename}')
 
 
 
