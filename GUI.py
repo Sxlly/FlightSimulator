@@ -27,6 +27,10 @@ class MyGridLayout(GridLayout):
 
         """Column Setting Within Grid"""
         self.cols = 1
+        self.row_force_default = True
+        self.row_default_height = 145
+        self.col_force_default = True
+        self.col_default_width = 200
 
         """Creating Second GridLayout"""
         self.top_grid = GridLayout(
