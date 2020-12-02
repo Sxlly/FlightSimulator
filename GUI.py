@@ -12,6 +12,7 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
+from kivy.lang import Builder
 
 """Importing The Backend Classes"""
 from Simulation import Simulation
