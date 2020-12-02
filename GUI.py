@@ -1,3 +1,5 @@
+"""Importing All Functional Kivy Classes"""
+
 import kivy
 from kivy.app import App
 from kivy.lang import Builder
@@ -11,102 +13,46 @@ from kivy.uix.button import Button
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 
+"""Importing The Backend Classes"""
 from Simulation import Simulation
 from main import Aircraft
 
-class Create_Main_Window(Screen):
-    n_aircrafts = ObjectProperty(None)
-    height_file = ObjectProperty(None)
 
-    def enter(self):
-        if (self.n_aircrafts != 0 and self.height_file):
-            Simulation.aircraft_count = int(self.n_aircrafts.text)
-            Simulation.fn = self.height_file.text
+class MyGridLayout(GridLayout):
 
-            self.reset()
-
-            sm.current = "Enter"
+    def __init__(self, **kwargs):
         
-        else:
-            invalid_aircraft()
-    
-    def enter(self):
-        self.reset()
-        sm.current = "Enter"
-    
-    def reset(self):
-        self.n_aircrafts.text = ""
-        self.height_file = ""
+        """Call grid layout constructor"""
+        super(MyGridLayout, self).__init__(**kwargs)
 
-class Aircraft_Input_Window(Screen):
+        """Column Setting Within Grid"""
+        self.cols = 1
+        """Input Box Setting Within Grid"""
+        self.add_widget(Label(text= "Number Of Aircraft: "))
+        self.num_aircrafts = TextInput(multiline=False)
+        self.add_widget(self.num_aircrafts)
 
-    name = ObjectProperty(None)
-    alt = ObjectProperty(None)
-    speed = ObjectProperty(None)
-    pos = ObjectProperty(None)
-    direction = ObjectProperty(None)
+        self.add_widget(Label(text= "Filename: "))
+        self.filename = TextInput(multiline=False)
+        self.add_widget(self.filename)
 
-    def enter_aircraft_button(self):
-
-        if Simulation.add_aircraft_kivy(self.name.text, int(self.alt.text), int(self.speed.text), tuple(self.pos.text), self.direction.text):
-
-            Main_Window.current = self.name.text
-            self.reset()
-            sm.current = "main"
-        
-        else:
-            invalid_aircraft()
-        
-        def create_aircraft_button(self):
-            self.reset()
-            sm.current = "Create"
-        
-        def reset(self):
-            self.name.text = ""
-            self.alt.text = ""
-            self.speed.text = ""
-            self.pos.text = ""
-            self.direction.text = ""
-
-class Main_Window(Screen):
-
-    total_aircrafts = ObjectProperty(None)
-    avg_alt = ObjectProperty(None)
-    avg_speed = ObjectProperty(None)
-
-    def wipe_aircraft(self):
-        sm.current = "aircraft"
-    
-    def on_enter(self, *args):
-        ac_avg_alt = Simulation.get_avg_alt()
-        ac_avg_speed = Simulation.get_avg_speed()
-        aircraft_name_list = Simulation.all_aircraft
-        self.total_aircrafts.text = "Current Aircrafts: " + str(aircraft_name_list)
-        self.avg_alt = "Average Altitude: " + str(ac_avg_alt)
-        self.avg_speed = "Average Speed: " + str(ac_avg_speed)
-    
-class Window_Manager(self):
-    pass
-
-def invalid_aircraft():
-    pop = Popup(title = "Invalid Aircraft", content = Label(text = "Invalid Parameter!"), size_hint = (None, None), size = (400, 400))
-    pop.open()
-
-
-    
+        """Button Setting Within Grid"""
+        self.enter = Button(text = "Enter", font_size=32)
+        self.add_widget(self.enter)
 
 
 
+    def press(self, instance):
+        num_aircrafts = self.num.text 
+        filename = self.file.text  
 
 
 
-
-
-
+"""App Run Class"""
 class MyApp(App):
 
     def build(self):
-        pass
+        return MyGridLayout()
 
 if __name__ == "__main__":
     MyApp().run()
