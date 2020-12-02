@@ -1,6 +1,12 @@
 <MyGridLayout>
+
+    num_aircrafts: num_aircrafts
+    filename: filename
+
+
     GridLayout:
         cols: 1
+        size: root.width, root.height
 
         GridLayout:
             cols: 2
@@ -8,13 +14,17 @@
             Label:
                 text: "Number Of Aircrafts: "
             TextInput:
+                id: num_aircrafts
                 multiline: False
             
             Label:
                 text: "Filename: "
             TextInput:
+                id: filename 
                 multiline: False
         
         Button:
             text: "Enter"
+            font_size: 20
+            on_press: root.press()
 

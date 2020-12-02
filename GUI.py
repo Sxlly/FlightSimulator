@@ -20,8 +20,11 @@ from main import Aircraft
 
 class MyGridLayout(GridLayout):
 
+    num_aircrafts = ObjectProperty(None)
+    filename = ObjectProperty(None)
 
-    def press(self, instance):
+
+    def press(self):
         num_aircrafts = self.num_aircrafts.text
         filename = self.filename.text
 
