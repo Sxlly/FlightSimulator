@@ -19,7 +19,7 @@ from Simulation import Simulation
 from main import Aircraft
 
 
-class MyGridLayout(GridLayout):
+class MyLayout(GridLayout):
 
     num_aircrafts = ObjectProperty(None)
     filename = ObjectProperty(None)
@@ -43,7 +43,7 @@ class MyGridLayout(GridLayout):
 class MyApp(App):
 
     def build(self):
-        return MyGridLayout()
+        return MyLayout()
 
 if __name__ == "__main__":
     MyApp().run()

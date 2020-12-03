@@ -1,32 +1,32 @@
-<MyGridLayout>
+<MyLayout>
 
     num_aircrafts: num_aircrafts
     filename: filename
 
-
-    GridLayout:
-        cols: 1
+    BoxLayout:
+        orientation: "vertical"
         size: root.width, root.height
+        padding: 10
+        spacing: 10
 
-        GridLayout:
-            cols: 2
 
-            Label:
-                text: "Number Of Aircrafts: "
-            TextInput:
-                id: num_aircrafts
-                multiline: False
-            
-            Label:
-                text: "Filename: "
-            TextInput:
-                id: filename 
-                multiline: False
+        Label:
+            text: "Number Of Aircraft"
         
+        TextInput:
+            multiline: False
+            id: num_aircrafts
+        
+        Label:
+            text: "Height File Name"
+        
+        TextInput:
+            multiline: False
+            id: filename
+
         Button:
             text: "Enter"
-            font_size: 20
-            on_press: root.press()
-            background_normal: ''
-            background_color: (230/255.0,100/255.0,115/255.0,0.8)
+        
+        Button:
+            text: "Clear"
 
