@@ -14,6 +14,7 @@ from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 from kivy.core.window import Window
+from kivy.uix.image import Image
 
 """Importing The Backend Classes"""
 from Simulation import Simulation
@@ -27,14 +28,23 @@ class MyLayout(Widget):
 
 
     def press(self):
+
         num_aircrafts = self.num_aircrafts.text
         filename = self.filename.text
 
         #printing to terminal
         print(f'Current Number Of Aircraft In Airspace {num_aircrafts} and the Terrain File Is: {filename}')
 
-        #printing to kivy current screen
-        self.add_widget(Label(text= f'Current Number Of Aircraft In Airspace {num_aircrafts} and the Terrain File Is: {filename}'))
+        #Parsing kivy textinput values into simulation class methods
+        Simulation.add_aircraft(int(num_aircrafts))
+
+        #parsing filename into simualtion method
+        Simulation.fn = str(filename)
+
+        #error checking with simulation method
+        Simulation.get_filename()
+
+        
 
         #clear input boxs 
         self.num_aircrafts = ""
