@@ -13,13 +13,14 @@ from kivy.uix.button import Button
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 from kivy.lang import Builder
+from kivy.core.window import Window
 
 """Importing The Backend Classes"""
 from Simulation import Simulation
 from main import Aircraft
 
 
-class MyLayout(GridLayout):
+class MyLayout(Widget):
 
     num_aircrafts = ObjectProperty(None)
     filename = ObjectProperty(None)
@@ -43,6 +44,7 @@ class MyLayout(GridLayout):
 class MyApp(App):
 
     def build(self):
+        Window.clearcolor = (1,1,1,1)
         return MyLayout()
 
 if __name__ == "__main__":
