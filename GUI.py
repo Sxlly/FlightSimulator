@@ -118,7 +118,7 @@ class Window_Manager(ScreenManager):
 
 
 
-
+kv = Builder.load_file("my.kv")
 sm = Window_Manager()
 
 screens = [Intro_Screen(name = "intro"), Main_Screen(name = "main")]
@@ -126,12 +126,13 @@ screens = [Intro_Screen(name = "intro"), Main_Screen(name = "main")]
 for screen in screens:
     sm.add_widget(screen)
 
+sm.current = "intro"
+
 """App Run Class"""
 class MyApp(App):
 
     def build(self):
-        Window.clearcolor = (1,1,1,1)
-        return Intro_Screen()
+        return sm
 
 if __name__ == "__main__":
     MyApp().run()
