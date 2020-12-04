@@ -49,21 +49,14 @@ class Intro_Screen(Screen):
         if ic == 1:
 
             intro_pop = Popup(title = "Invalid Input(s)",
-                                content = Label(text = "Please fill in all input boxs with valid data"),
-                                size_hint = (None, None),
-                                size = (400, 400))
-            
+                                content = Label(text = "Please fill in all input boxs with valid data", font_size = 18))
             intro_pop.open()
         
         if fc == 1:
 
             intro_pop = Popup(title = "Invalid Input(s)",
-                    content = Label(text = "Please fill in all input boxs with valid data"),
-                    size_hint = (None, None),
-                    size = (400, 400))
-            
+                    content = Label(text = "Please fill in all input boxs with valid data", font_size = 18))
             intro_pop.open()
-
 
         else:
             pass
