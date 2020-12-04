@@ -24,6 +24,8 @@ from main import Aircraft
 #Setting default application window size
 Window.size = (750,500)
 
+#Declaring Current Simulation Class For Current Runtime
+curr_simulation = Simulation()
 
 class Intro_Screen(Screen):
 
@@ -36,21 +38,44 @@ class Intro_Screen(Screen):
         num_aircrafts = self.num_aircrafts.text
         filename = self.filename.text
 
-        Simulation.fn = str(filename)
-
         #printing to terminal
         print(f'Current Number Of Aircraft In Airspace {num_aircrafts} and the Terrain File Is: {filename}')
 
-        self.integer_checker(int(num_aircrafts))
-        self.filename_checker()
+
+        ic = self.integer_checker(int(num_aircrafts))
+        fc = self.filename_checker(str(filename))
+
+
+        if ic == 1:
+
+            intro_pop = Popup(title = "Invalid Input(s)",
+                                content = Label(text = "Please fill in all input boxs with valid data"),
+                                size_hint = (None, None),
+                                size = (400, 400))
+            
+            intro_pop.open()
+        
+        if fc == 1:
+
+            intro_pop = Popup(title = "Invalid Input(s)",
+                    content = Label(text = "Please fill in all input boxs with valid data"),
+                    size_hint = (None, None),
+                    size = (400, 400))
+            
+            intro_pop.open()
+
+
+        else:
+            pass
+
     
     def integer_checker(self, num_aircrafts):
         #Parsing kivy textinput values into simulation class methods
-        Simulation.add_aircraft(self, int(num_aircrafts))
+        return curr_simulation.aircraft_num_checker(int(num_aircrafts))
 
-    def filename_checker(self):
+    def filename_checker(self, filename):
         #error checking with simulation method
-        Simulation.get_filename()
+        return curr_simulation.get_filename(str(filename))
 
     def intro_clear(self):
 

@@ -20,9 +20,9 @@ class Simulation():
     """Top Level Class **Inheritance == NULL**"""
     """Associating with: main.py>>Aircraft Object Class"""
 
-    def __init__(self, fn):
+    def __init__(self):
 
-        self.fn = str(fn) #passing given file name of dtype string to class variable
+        self.fn = "" #passing given file name of dtype string to class variable
         self.all_aircraft = [] #names of all current aircraft in list form
         self.terrain_col_list = [] #all aircraft & terrain collisions in list form
         self.aircraft_col_list = [] #all aircraft & aircraft collisions in lsit form
@@ -36,48 +36,38 @@ class Simulation():
         self.ax1 = None #subplot axis 1
 
 
-    def get_filename(self):
+    def get_filename(self, filename):
+        
+        status = 0
+        self.fn = str(filename)
 
         try:
             with open(self.fn, 'rb') as f:
                 pass
-            return self.fn
 
         except FileNotFoundError:
             print("Inputted File Name Does not Exist")
-            return
+            self.fn = ""
+            status = 1
+        
+        finally:
+            return status
     
-    def add_aircraft(self, num):
+    def aircraft_num_checker(self, num_aircrafts):
+
+        status = 0
 
         try:
-            for ii in range(1, num):
+            num_aircrafts / 2
 
-                name = str(input("Enter Aircraft " + str(ii) + "'s " + "name: "))
-                print(spacer)
-                alt = int(input("Enter Aircraft's Altitude: "))
-                print(spacer)
-                speed = int(input("Enter Aircraft's Speed:  "))
-                print(spacer)
-                x = int(input("Enter Aircraft's Starting x coordinate:  "))
-                print(spacer)
-                y = int(input("Enter Aircraft's Starting y coordinate:  "))
-                print(spacer)
-                direction = str(input("Enter A Direction Of Flight (N/S/E/W):  "))
-        
-                pos = (x, y)
-                obj_name = name
-
-                obj_name = Aircraft(name, alt, speed, pos, direction)
-
-                self.all_aircraft.append(obj_name)
-        
-        except TypeError():
-
-            print("Given Input is not of type integer")
-            return
+        except ValueError() or TypeError():
             
+            status = 1
+        
         finally:
-            return
+            return status
+
+            
     
     def add_aircraft_kivy(self, name, alt, speed, pos, direction):
 
@@ -224,7 +214,7 @@ class Simulation():
 
 if __name__ == "__main__":
 
-    sim = Simulation('N42W114.hgt')
+    sim = Simulation()
 
     num = int(input("Enter Amount Of Aircraft:  "))
 
