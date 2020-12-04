@@ -12,6 +12,7 @@
     size_hint: (None, None)
     width: 150
     height: 50
+    halign: "center" 
 
 <Label>
     font_size: 30
@@ -19,7 +20,7 @@
     italic: True
 
 
-<MyLayout>
+<Intro_Screen>
 
     num_aircrafts: num_aircrafts
     filename: filename
@@ -49,7 +50,7 @@
 
         Button:
             text: "Enter"
-            on_press: root.press()
+            on_press: root.intro_enter()
         
         Button:
             text: "Clear"

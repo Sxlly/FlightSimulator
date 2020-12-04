@@ -15,47 +15,98 @@ from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.uix.image import Image
+from kivy.uix.popup import Popup
 
 """Importing The Backend Classes"""
 from Simulation import Simulation
 from main import Aircraft
 
+#Setting default application window size
+Window.size = (750,500)
 
-class MyLayout(Widget):
+
+class Intro_Screen(Screen):
 
     num_aircrafts = ObjectProperty(None)
     filename = ObjectProperty(None)
 
 
-    def press(self):
+    def intro_enter(self):
 
         num_aircrafts = self.num_aircrafts.text
         filename = self.filename.text
 
+        Simulation.fn = str(filename)
+
         #printing to terminal
         print(f'Current Number Of Aircraft In Airspace {num_aircrafts} and the Terrain File Is: {filename}')
 
+        self.integer_checker(int(num_aircrafts))
+        self.filename_checker()
+    
+    def integer_checker(self, num_aircrafts):
         #Parsing kivy textinput values into simulation class methods
-        Simulation.add_aircraft(int(num_aircrafts))
+        Simulation.add_aircraft(self, int(num_aircrafts))
 
-        #parsing filename into simualtion method
-        Simulation.fn = str(filename)
-
+    def filename_checker(self):
         #error checking with simulation method
         Simulation.get_filename()
 
-        
+    def intro_clear(self):
 
-        #clear input boxs 
         self.num_aircrafts = ""
         self.filename = ""
+
+class Main_Screen(Screen):
+
+    aircraft_name = ObjectProperty(None)
+    aircraft_speed = ObjectProperty(None)
+    aircraft_alt = ObjectProperty(None)
+    aircraft_pos = ObjectProperty(None)
+    aircraft_dir = ObjectProperty(None)
+
+    def pass_aircraft(self):
+
+        Simulation.add_aircraft_kivy(
+            str(self.aircraft_name.text),
+            int(self.aircraft_speed.text),
+            int(self.aircraft_alt.text),
+            tuple(self.aircraft_pos.text),
+            str(self.aircraft_dir.text)
+        )
+    
+    def main_enter(self):
+
+        self.pass_aircraft()
+
+        self.aircraft_name.text = ""
+        self.aircraft_speed.text = ""
+        self.aircraft_alt.text = ""
+        self.aircraft_pos.text = ""
+        self.aircraft_dir.text = ""
+
+
+class Window_Manager(ScreenManager):
+    pass
+
+
+
+
+
+
+
+
+
+
+
+
 
 """App Run Class"""
 class MyApp(App):
 
     def build(self):
         Window.clearcolor = (1,1,1,1)
-        return MyLayout()
+        return Intro_Screen()
 
 if __name__ == "__main__":
     MyApp().run()
