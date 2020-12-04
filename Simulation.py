@@ -49,28 +49,35 @@ class Simulation():
     
     def add_aircraft(self, num):
 
-        for ii in range(1, num):
+        try:
+            for ii in range(1, num):
 
-            name = str(input("Enter Aircraft " + str(ii) + "'s " + "name: "))
-            print(spacer)
-            alt = int(input("Enter Aircraft's Altitude: "))
-            print(spacer)
-            speed = int(input("Enter Aircraft's Speed:  "))
-            print(spacer)
-            x = int(input("Enter Aircraft's Starting x coordinate:  "))
-            print(spacer)
-            y = int(input("Enter Aircraft's Starting y coordinate:  "))
-            print(spacer)
-            direction = str(input("Enter A Direction Of Flight (N/S/E/W):  "))
-    
-            pos = (x, y)
-            obj_name = name
+                name = str(input("Enter Aircraft " + str(ii) + "'s " + "name: "))
+                print(spacer)
+                alt = int(input("Enter Aircraft's Altitude: "))
+                print(spacer)
+                speed = int(input("Enter Aircraft's Speed:  "))
+                print(spacer)
+                x = int(input("Enter Aircraft's Starting x coordinate:  "))
+                print(spacer)
+                y = int(input("Enter Aircraft's Starting y coordinate:  "))
+                print(spacer)
+                direction = str(input("Enter A Direction Of Flight (N/S/E/W):  "))
+        
+                pos = (x, y)
+                obj_name = name
 
-            obj_name = Aircraft(name, alt, speed, pos, direction)
+                obj_name = Aircraft(name, alt, speed, pos, direction)
 
-            self.all_aircraft.append(obj_name)
+                self.all_aircraft.append(obj_name)
+        
+        except TypeError():
 
-        return
+            print("Given Input is not of type integer")
+            return
+            
+        finally:
+            return
     
     def add_aircraft_kivy(self, name, alt, speed, pos, direction):
 
