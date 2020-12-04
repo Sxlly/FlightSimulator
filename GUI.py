@@ -59,6 +59,8 @@ class Intro_Screen(Screen):
             intro_pop.open()
 
         else:
+            self.intro_clear()
+            sm.current = "main"
             pass
 
     
@@ -117,7 +119,12 @@ class Window_Manager(ScreenManager):
 
 
 
+sm = Window_Manager()
 
+screens = [Intro_Screen(name = "intro"), Main_Screen(name = "main")]
+
+for screen in screens:
+    sm.add_widget(screen)
 
 """App Run Class"""
 class MyApp(App):

@@ -27,6 +27,7 @@
 
 
 <Intro_Screen>
+    name: "intro"
 
     num_aircrafts: num_aircrafts
     filename: filename
@@ -60,4 +61,52 @@
         
         Button:
             text: "Clear"
+
+<Main_Screen>
+    name: "main"
+
+    aircraft_name: aircraft_name
+    aircraft_speed: aircraft_speed
+    aircraft_alt: aircraft_alt
+    aircraft_pos: aircraft_pos
+    aircraft_dir: aircraft_dir
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        padding: 10
+        padding: 5
+
+        Label:
+            text: "Aircraft Name"
+            color: (0,100/255.0,150/255.0,0.8)
+        
+        TextInput:
+            multiline: False
+            id: aircraft_name
+        
+        Label:
+            text: "Aircraft Speed"
+            color: (0,100/255.0,150/255.0,0.8)
+        
+        TextInput:
+            multiline: False
+            id: aircraft_speed
+
+        Label:
+            text: "Aircraft Altitude"
+            color: (0,100/255.0,150/255.0,0.8)
+        
+        TextInput:
+            multiline: False
+            id: aircraft_alt
+    
+        Label:
+            text: "Aircraft Position"
+            color: (0,100/255.0,150/255.0,0.8)
+        
+        TextInput:
+            multiline: False
+            id: aircraft_pos
+
 
