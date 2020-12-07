@@ -94,6 +94,7 @@ class Main_Screen(Screen):
     aircraft_dir = ObjectProperty(None)
     aircraft_entered_label = ObjectProperty(None)
 
+    #tracking for amount of aircraft entered
     curr_ac_num = 0
 
     def pass_aircraft(self):
@@ -129,6 +130,19 @@ class Main_Screen(Screen):
         self.aircraft_alt.text = ""
         self.aircraft_pos.text = ""
         self.aircraft_dir.text = ""
+    
+
+class Plot_Screen(Screen):
+
+
+    def validate_terrain(self):
+
+        
+
+
+
+
+
 
 
 class Window_Manager(ScreenManager):
