@@ -42,11 +42,14 @@ class Intro_Screen(Screen):
         print(f'Current Number Of Aircraft In Airspace {num_aircrafts} and the Terrain File Is: {filename}')
 
 
+        #input validation 
         ic = self.integer_checker(int(num_aircrafts))
         fc = self.filename_checker(str(filename))
 
 
         if ic == 1:
+
+            #If integer check returns integer "1" prompt invalid input popup
 
             intro_pop = Popup(title = "Invalid Input(s)",
                                 content = Label(text = "Please fill in all input boxs with valid data", font_size = 18))
@@ -54,11 +57,15 @@ class Intro_Screen(Screen):
         
         if fc == 1:
 
+            #If filename search returns integer "1" prompt invalid input popup
+
             intro_pop = Popup(title = "Invalid Input(s)",
                     content = Label(text = "Please fill in all input boxs with valid data", font_size = 18))
             intro_pop.open()
 
         else:
+
+            #else (input is valid) switch screen to main screen and clear input boxs
             self.intro_clear()
             sm.current = "main"
             pass
