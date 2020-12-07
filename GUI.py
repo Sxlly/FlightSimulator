@@ -222,7 +222,7 @@ for screen in screens:
     sm.add_widget(screen)
 
 # screen to show when runtime executes (landing screen)
-sm.current = "plot"
+sm.current = "main"
 
 
 

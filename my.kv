@@ -1,7 +1,7 @@
 <Button>
     font_size: 20
     background_normal: ''
-    background_color: (0,100/255.0,150/255.0,0.8)
+    background_color: (181/255.0,128/255.0,98/255.0,0.8)
     size_hint: (None, None)
     pos_hint: {'center_x': 0.5}
     width: 250
@@ -38,8 +38,8 @@
     BoxLayout:
         orientation: "vertical"
         size: root.width, root.height
-        padding: 10
-        spacing: 10
+        padding: 20
+        spacing: 5
 
         Image:
             source: 'Flight-Simulator-Logo.png'
@@ -168,7 +168,7 @@
             text: "To Intro Screen"
             background_normal: ''
             background_color: (17/255.0,168/255.0,40/255.0,0.75)
-            pos_hint: {'x': 0.40, "top": 0.65}
+            pos_hint: {'x': 0.40, "top": 0.85}
             on_press: root.navto_intro()
         
         Button:
@@ -176,7 +176,7 @@
             text: "To Plot Screen"
             background_normal: ''
             background_color: (17/255.0,168/255.0,40/255.0,0.75)
-            pos_hint: {'x': 0.40, "top": 0.45}
+            pos_hint: {'x': 0.40, "top": 0.80}
             on_press: root.navto_plot()
 
 <Plot_Screen>
