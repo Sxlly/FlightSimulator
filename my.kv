@@ -74,7 +74,7 @@
     aircraft_pos: aircraft_pos
     aircraft_dir: aircraft_dir
 
-    BoxLayout:
+    FloatLayout:
         orientation: "vertical"
         size: root.width, root.height
         padding: 10
@@ -86,48 +86,58 @@
         Label:
             text: "Aircraft Name"
             color: (0,100/255.0,150/255.0,0.8)
+            pos_hint: {'x': -0.34, "top": 1.45}
         
         TextInput:
             multiline: False
             id: aircraft_name
+            pos_hint: {'x': 0.1, "top": 0.9}
         
         Label:
             text: "Aircraft Speed"
             color: (0,100/255.0,150/255.0,0.8)
+            pos_hint: {'x': 0.1, "top": 0.75}
         
         TextInput:
             multiline: False
             id: aircraft_speed
+            pos_hint: {'x': 0.1, "top": 0.7}
 
         Label:
             text: "Aircraft Altitude"
             color: (0,100/255.0,150/255.0,0.8)
+            pos_hint: {'x': 0.1, "top": 0.55}
         
         TextInput:
             multiline: False
             id: aircraft_alt
+            pos_hint: {'x': 0.1, "top": 0.5}
     
         Label:
             text: "Aircraft Position"
             color: (0,100/255.0,150/255.0,0.8)
+            pos_hint: {'x': 0.1, "top": 0.35}
         
         TextInput:
             multiline: False
             id: aircraft_pos
+            pos_hint: {'x': 0.1, "top": 0.3}
 
         Label:
             text: "Aircraft Direction"
             color: (0,100/255.0,150/255.0,0.8)
+            pos_hint: {'x': 0.1, "top": 0.15}
         
         TextInput:
             multiline: False
             id: aircraft_dir
+            pos_hint: {'x': 0.1, "top": 0.1}
         
 
         Button:
             text: "Enter"
             background_normal: ''
             background_color: (0,50/255.0,30/255.0,0.75)
-            pos_hint: {'center_x': 0.5}
+            pos_hint: {'x': 0.8, "top": 0.4}
 
 

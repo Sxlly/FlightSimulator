@@ -22,7 +22,7 @@ from Simulation import Simulation
 from main import Aircraft
 
 #Setting default application window size
-Window.size = (750,500)
+Window.size = (1280,720)
 
 #Declaring Current Simulation Class For Current Runtime
 curr_simulation = Simulation()
@@ -126,7 +126,7 @@ screens = [Intro_Screen(name = "intro"), Main_Screen(name = "main")]
 for screen in screens:
     sm.add_widget(screen)
 
-sm.current = "intro"
+sm.current = "main"
 
 """App Run Class"""
 class MyApp(App):
