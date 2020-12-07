@@ -94,19 +94,18 @@ class Main_Screen(Screen):
 
     def pass_aircraft(self):
 
-        Simulation.add_aircraft_kivy(
-            str(self.aircraft_name.text),
-            int(self.aircraft_speed.text),
-            int(self.aircraft_alt.text),
-            tuple(self.aircraft_pos.text),
-            str(self.aircraft_dir.text)
+        return curr_simulation.add_aircraft_kivy(
+            self.aircraft_name.text,
+            self.aircraft_speed.text,
+            self.aircraft_alt.text,
+            self.aircraft_pos.text,
+            self.aircraft_dir.text
         )
     
     def main_enter(self):
 
-        craft_pass = self.pass_aircraft()
 
-        if craft_pass == True:
+        if self.pass_aircraft() == True:
 
             self.main_clear()
         

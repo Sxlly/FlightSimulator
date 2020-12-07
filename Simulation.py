@@ -72,6 +72,13 @@ class Simulation():
     def add_aircraft_kivy(self, name, alt, speed, pos, direction):
 
         obj_name = name
+        boo = True
+
+        name = str(name)
+        alt = int(alt)
+        speed = int(speed)
+        pos = tuple(pos)
+        direction = str(direction)
 
         try:
             
@@ -79,11 +86,12 @@ class Simulation():
 
             self.all_aircraft.append(obj_name)
 
-            return True
+        except TypeError:
+            
+            boo = False
         
-        except TypeError() or ValueError():
-
-            return False
+        finally:
+            return boo
 
 
     def get_aircraft(self, num):
