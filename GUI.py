@@ -65,7 +65,8 @@ class Intro_Screen(Screen):
 
         else:
 
-            #else (input is valid) switch screen to main screen and clear input boxs
+            #else (input is valid) make aircraft count the given number of aircraft, switch screen to main screen and clear input boxs
+            curr_simulation.aircraft_count = int(num_aircrafts)
             self.intro_clear()
             sm.current = "main"
             pass
@@ -91,6 +92,9 @@ class Main_Screen(Screen):
     aircraft_alt = ObjectProperty(None)
     aircraft_pos = ObjectProperty(None)
     aircraft_dir = ObjectProperty(None)
+    aircraft_entered_label = ObjectProperty(None)
+
+    curr_ac_num = 0
 
     def pass_aircraft(self):
 
@@ -107,6 +111,8 @@ class Main_Screen(Screen):
 
         if self.pass_aircraft() == True:
 
+            self.curr_ac_num += 1
+            self.aircraft_entered_label.text = f'{self.curr_ac_num}/{curr_simulation.aircraft_count} Aircraft Entered'
             self.main_clear()
         
         else:

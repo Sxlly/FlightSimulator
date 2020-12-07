@@ -73,6 +73,7 @@
     aircraft_alt: aircraft_alt
     aircraft_pos: aircraft_pos
     aircraft_dir: aircraft_dir
+    aircraft_entered_label: aircraft_entered_label
 
     FloatLayout:
         orientation: "vertical"
@@ -132,6 +133,12 @@
             multiline: False
             id: aircraft_dir
             pos_hint: {'x': 0.1, "top": 0.1}
+        
+        Label:
+            id: aircraft_entered_label
+            text: "No Aircraft Entered"
+            pos_hint: {'x': 0, "top": 0.75}
+
         
 
         Button:
