@@ -125,21 +125,37 @@ class Window_Manager(ScreenManager):
 
 
 
+#Load kivy design langauage file 
+
 kv = Builder.load_file("my.kv")
+
+# declare variable "sm" (screenmanager) to be used as the window manager
+
 sm = Window_Manager()
 
+# iterable list of screens 
+
 screens = [Intro_Screen(name = "intro"), Main_Screen(name = "main")]
+
+# appending all screens within screens list to be individual widgets
 
 for screen in screens:
     sm.add_widget(screen)
 
+# screen to show when runtime executes (landing screen)
 sm.current = "main"
+
+
+
 
 """App Run Class"""
 class MyApp(App):
 
+    # builds and returns current screen held within variable "sm"
     def build(self):
         return sm
 
+
+# if name is main then do the following (execution line)
 if __name__ == "__main__":
     MyApp().run()
