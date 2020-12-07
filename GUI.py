@@ -104,7 +104,20 @@ class Main_Screen(Screen):
     
     def main_enter(self):
 
-        self.pass_aircraft()
+        craft_pass = self.pass_aircraft()
+
+        if craft_pass == True:
+
+            self.main_clear()
+        
+        else:
+
+            intro_pop = Popup(title = "Invalid Input(s)",
+                    content = Label(text = "Please fill in all input boxs with valid data", font_size = 18))
+            intro_pop.open()
+
+
+    def main_clear(self):
 
         self.aircraft_name.text = ""
         self.aircraft_speed.text = ""
