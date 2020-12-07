@@ -31,6 +31,8 @@ class Intro_Screen(Screen):
 
     num_aircrafts = ObjectProperty(None)
     filename = ObjectProperty(None)
+    nav_main = ObjectProperty(None)
+    nav_plot = ObjectProperty(None)
 
 
     def intro_enter(self):
@@ -85,6 +87,14 @@ class Intro_Screen(Screen):
 
         self.num_aircrafts = ""
         self.filename = ""
+    
+    def navto_plot(self):
+        sm.current = "plot"
+        return
+
+    def navto_main(self):
+        sm.current = "main"
+        return
 
 class Main_Screen(Screen):
 
@@ -94,6 +104,8 @@ class Main_Screen(Screen):
     aircraft_pos = ObjectProperty(None)
     aircraft_dir = ObjectProperty(None)
     aircraft_entered_label = ObjectProperty(None)
+    nav_plot = ObjectProperty(None)
+    nav_intro = ObjectProperty(None)
 
     #tracking for amount of aircraft entered
     curr_ac_num = 0
@@ -132,6 +144,14 @@ class Main_Screen(Screen):
         self.aircraft_pos.text = ""
         self.aircraft_dir.text = ""
     
+    def navto_intro(self):
+        sm.current = "intro"
+        return
+
+    def navto_plot(self):
+        sm.current = "plot"
+        return
+    
 
 class Plot_Screen(Screen):
 
@@ -139,6 +159,8 @@ class Plot_Screen(Screen):
     flight_hours = ObjectProperty(None)
     flight_hours_label = ObjectProperty(None)
     plot_button = ObjectProperty(None)
+    nav_main = ObjectProperty(None)
+    nav_intro = ObjectProperty(None)
 
 
     def validate_terrain(self):
@@ -154,10 +176,12 @@ class Plot_Screen(Screen):
         curr_simulation.run_simulation(hours)
     
     def navto_intro(self):
-        pass
+        sm.current = "intro"
+        return
 
     def navto_main(self):
-        pass
+        sm.current = "main"
+        return
 
 
 

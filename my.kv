@@ -1,16 +1,16 @@
 <Button>
-    font_size: 24
+    font_size: 20
     background_normal: ''
     background_color: (0,100/255.0,150/255.0,0.8)
     size_hint: (None, None)
     pos_hint: {'center_x': 0.5}
-    width: 300
-    height: 50
+    width: 250
+    height: 35
 
 <TextInput>
     pos_hint: {'center_x': 0.5}
     size_hint: (None, None)
-    width: 150
+    width: 200
     height: 50
     halign: "center"
 
@@ -24,6 +24,7 @@
     font_size: 30
     bold: True
     italic: True
+    color: (232/255.0, 211/255.0, 179/255.0, 1)
 
 
 <Intro_Screen>
@@ -31,6 +32,8 @@
 
     num_aircrafts: num_aircrafts
     filename: filename
+    nav_main: nav_main
+    nav_plot: nav_plot
 
     BoxLayout:
         orientation: "vertical"
@@ -44,7 +47,6 @@
 
         Label:
             text: "Number Of Aircraft"
-            color: (0,100/255.0,150/255.0,0.8)
         
         TextInput:
             multiline: False
@@ -52,7 +54,6 @@
         
         Label:
             text: "Height File Name"
-            color: (0,100/255.0,150/255.0,0.8)
         
         TextInput:
             multiline: False
@@ -64,6 +65,20 @@
         
         Button:
             text: "Clear"
+        
+        Button:
+            id: nav_main
+            text: "To Main Screen"
+            background_normal: ''
+            background_color: (17/255.0,168/255.0,40/255.0,0.75)
+            on_press: root.navto_main()
+        
+        Button:
+            id: nav_plot
+            text: "To Plot Screen"
+            background_normal: ''
+            background_color: (17/255.0,168/255.0,40/255.0,0.75)
+            on_press: root.navto_plot()
 
 <Main_Screen>
     name: "main"
@@ -74,6 +89,8 @@
     aircraft_pos: aircraft_pos
     aircraft_dir: aircraft_dir
     aircraft_entered_label: aircraft_entered_label
+    nav_plot: nav_plot
+    nav_intro: nav_intro
 
     FloatLayout:
         orientation: "vertical"
@@ -145,6 +162,22 @@
             background_color: (0,50/255.0,30/255.0,0.75)
             pos_hint: {'x': 0.40, "top": 0.40}
             on_press: root.main_enter()
+        
+        Button:
+            id: nav_intro
+            text: "To Intro Screen"
+            background_normal: ''
+            background_color: (17/255.0,168/255.0,40/255.0,0.75)
+            pos_hint: {'x': 0.40, "top": 0.65}
+            on_press: root.navto_intro()
+        
+        Button:
+            id: nav_plot
+            text: "To Plot Screen"
+            background_normal: ''
+            background_color: (17/255.0,168/255.0,40/255.0,0.75)
+            pos_hint: {'x': 0.40, "top": 0.45}
+            on_press: root.navto_plot()
 
 <Plot_Screen>
     name: "plot"
@@ -153,6 +186,8 @@
     flight_hours: flight_hours
     flight_hours_label: flight_hours_label
     plot_button: plot_button
+    nav_main: nav_main
+    nav_intro: nav_intro
 
     FloatLayout:
         orientation: "vertical"
@@ -186,6 +221,22 @@
             background_color: (17/255.0,168/255.0,40/255.0,0.75)
             pos_hint: {'x': 0.65, "top": 0.95}
             on_press: root.run_plot()
+        
+        Button:
+            id: nav_intro
+            text: "To Intro Screen"
+            background_normal: ''
+            background_color: (17/255.0,168/255.0,40/255.0,0.75)
+            pos_hint: {'x': 0.40, "top": 0.65}
+            on_press: root.navto_intro()
+        
+        Button:
+            id: nav_main
+            text: "To Main Screen"
+            background_normal: ''
+            background_color: (17/255.0,168/255.0,40/255.0,0.75)
+            pos_hint: {'x': 0.40, "top": 0.45}
+            on_press: root.navto_main()
 
 
 
