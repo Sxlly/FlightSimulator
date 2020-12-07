@@ -73,11 +73,18 @@ class Simulation():
 
         obj_name = name
 
-        obj_name = Aircraft(name, alt, speed, pos, direction)
+        try:
+            
+            obj_name = Aircraft(name, alt, speed, pos, direction)
 
-        self.all_aircraft.append(obj_name)
+            self.all_aircraft.append(obj_name)
 
-        return
+            return True
+        
+        except TypeError() or ValueError():
+
+            return False
+
 
     def get_aircraft(self, num):
         
