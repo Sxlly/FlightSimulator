@@ -136,6 +136,9 @@ class Main_Screen(Screen):
 class Plot_Screen(Screen):
 
     validate_button = ObjectProperty(None)
+    flight_hours = ObjectProperty(None)
+    flight_hours_label = ObjectProperty(None)
+    plot_button = ObjectProperty(None)
 
 
     def validate_terrain(self):
@@ -144,6 +147,17 @@ class Plot_Screen(Screen):
 
         self.validate_button.background_color = (17/255.0,168/255.0,40/255.0,0.75)
     
+    def run_plot(self):
+
+        hours = int(self.flight_hours.text) 
+
+        curr_simulation.run_simulation(hours)
+    
+    def navto_intro(self):
+        pass
+
+    def navto_main(self):
+        pass
 
 
 

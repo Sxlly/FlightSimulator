@@ -150,12 +150,26 @@
     name: "plot"
 
     validate_button: validate_button
+    flight_hours: flight_hours
+    flight_hours_label: flight_hours_label
+    plot_button: plot_button
 
     FloatLayout:
         orientation: "vertical"
         size: root.width, root.height
         padding: 10
         padding: 5
+
+        Label:
+            id: flight_hours_label
+            text: "Hours Of Flight"
+            pos_hint: {'x': 0, "top": 1.45}
+
+        TextInput:
+            id: flight_hours
+            multiline: False
+            pos_hint: {'x': 0.45, "top": 0.90}
+
 
         Button:
             id: validate_button
@@ -164,6 +178,14 @@
             background_color: (179/255.0,38/255.0,16/255.0,0.75)
             pos_hint: {'x': 0.15, "top": 0.95}
             on_press: root.validate_terrain()
+        
+        Button:
+            id: plot_button
+            text: "Run Simulator"
+            background_normal: ''
+            background_color: (17/255.0,168/255.0,40/255.0,0.75)
+            pos_hint: {'x': 0.65, "top": 0.95}
+            on_press: root.run_plot()
 
 
 
