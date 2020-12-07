@@ -136,8 +136,9 @@ class Plot_Screen(Screen):
 
 
     def validate_terrain(self):
+        pass
 
-        
+
 
 
 
@@ -167,7 +168,7 @@ sm = Window_Manager()
 
 # iterable list of screens 
 
-screens = [Intro_Screen(name = "intro"), Main_Screen(name = "main")]
+screens = [Intro_Screen(name = "intro"), Main_Screen(name = "main"), Plot_Screen(name = "plot")]
 
 # appending all screens within screens list to be individual widgets
 
@@ -175,7 +176,7 @@ for screen in screens:
     sm.add_widget(screen)
 
 # screen to show when runtime executes (landing screen)
-sm.current = "main"
+sm.current = "plot"
 
 
 
