@@ -149,6 +149,8 @@
 <Plot_Screen>
     name: "plot"
 
+    validate_button: validate_button
+
     FloatLayout:
         orientation: "vertical"
         size: root.width, root.height
@@ -156,9 +158,10 @@
         padding: 5
 
         Button:
+            id: validate_button
             text: "Validate Terrain"
             background_normal: ''
-            background_color: (0,50/255.0,30/255.0,0.75)
+            background_color: (179/255.0,38/255.0,16/255.0,0.75)
             pos_hint: {'x': 0.15, "top": 0.95}
             on_press: root.validate_terrain()
 

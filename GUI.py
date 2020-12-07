@@ -67,6 +67,7 @@ class Intro_Screen(Screen):
 
             #else (input is valid) make aircraft count the given number of aircraft, switch screen to main screen and clear input boxs
             curr_simulation.aircraft_count = int(num_aircrafts)
+            curr_simulation.fn = str(filename)
             self.intro_clear()
             sm.current = "main"
             pass
@@ -134,9 +135,16 @@ class Main_Screen(Screen):
 
 class Plot_Screen(Screen):
 
+    validate_button = ObjectProperty(None)
+
 
     def validate_terrain(self):
-        pass
+
+        return curr_simulation.create_terrain()
+
+        self.validate_button.background_color = (17/255.0,168/255.0,40/255.0,0.75)
+    
+
 
 
 
