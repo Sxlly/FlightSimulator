@@ -112,7 +112,7 @@ class Main_Screen(Screen):
 
     def pass_aircraft(self):
 
-        return curr_simulation.add_aircraft_kivy(
+        curr_simulation.add_aircraft_kivy(
             self.aircraft_name.text,
             self.aircraft_speed.text,
             self.aircraft_alt.text,
@@ -122,18 +122,11 @@ class Main_Screen(Screen):
     
     def main_enter(self):
 
-
-        if self.pass_aircraft() == True:
-
+            self.pass_aircraft()
             self.curr_ac_num += 1
             self.aircraft_entered_label.text = f'{self.curr_ac_num}/{curr_simulation.aircraft_count} Aircraft Entered'
             self.main_clear()
         
-        else:
-
-            intro_pop = Popup(title = "Invalid Input(s)",
-                    content = Label(text = "Please fill in all input boxs with valid data", font_size = 18))
-            intro_pop.open()
 
 
     def main_clear(self):
@@ -165,7 +158,7 @@ class Plot_Screen(Screen):
 
     def validate_terrain(self):
 
-        return curr_simulation.create_terrain()
+        curr_simulation.create_terrain()
 
         self.validate_button.background_color = (17/255.0,168/255.0,40/255.0,0.75)
     

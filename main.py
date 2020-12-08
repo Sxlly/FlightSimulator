@@ -10,7 +10,7 @@ class Aircraft(object):
         self.name = str(name)
         self.alt = int(alt)
         self.speed = int(speed)
-        self.pos = tuple(pos)
+        self.pos = pos
         self.direction = str(direction)
     
     def get_name(self):
@@ -35,7 +35,7 @@ class Aircraft(object):
 
 if __name__ == "__main__":
 
-    a1 = Aircraft("Qantas", 2000, 10, (10,5), "N")
+    a1 = Aircraft("Qantas", 2000, 10, [10,5], "N")
 
     print(a1.name)
     print(a1.alt)

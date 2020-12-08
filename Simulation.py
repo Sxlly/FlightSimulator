@@ -69,7 +69,7 @@ class Simulation():
 
             
     
-    def add_aircraft_kivy(self, name, alt, speed, pos, direction):
+    def add_aircraft_kivy(self, name, alt, speed, x, y, direction):
 
         obj_name = name
         boo = True
@@ -77,7 +77,9 @@ class Simulation():
         name = str(name)
         alt = int(alt)
         speed = int(speed)
-        pos = tuple(pos)
+        pos = []
+        pos.append(int(x))
+        pos.append(int(y))
         direction = str(direction)
 
         try:
@@ -188,7 +190,7 @@ class Simulation():
                 plt.pause(0.75)
 
                 if (aircraft.direction == "N"):
-                    curr_y = curr_y + aircraft.speed
+                    curr_y = int(curr_y) + int(aircraft.speed)
                     curr_x = aircraft.pos[0]
                     curr_pos = self.aircraft_height[curr_x][curr_y]
                     pass
