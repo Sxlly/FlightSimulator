@@ -86,7 +86,8 @@
     aircraft_name: aircraft_name
     aircraft_speed: aircraft_speed
     aircraft_alt: aircraft_alt
-    aircraft_pos: aircraft_pos
+    aircraft_x: aircraft_x
+    aircraft_y: aircraft_y
     aircraft_dir: aircraft_dir
     aircraft_entered_label: aircraft_entered_label
     nav_plot: nav_plot
@@ -132,14 +133,32 @@
             pos_hint: {'x': 0.1, "top": 0.5}
     
         Label:
-            text: "Aircraft Position"
+            text: "Aircraft X Coordinate"
+            font_size: 20
             color: (0,100/255.0,150/255.0,0.8)
-            pos_hint: {'x': -0.34, "top": 0.85}
+            pos_hint: {'x': -0.42, "top": 0.85}
         
         TextInput:
             multiline: False
-            id: aircraft_pos
-            pos_hint: {'x': 0.1, "top": 0.3}
+            id: aircraft_x
+            pos_hint: {'x': 0.05, "top": 0.3}
+            size_hint: (None, None)
+            width: 100
+            height: 50
+        
+        Label:
+            text: "Aircraft Y Coordinate"
+            font_size: 20
+            color: (0,100/255.0,150/255.0,0.8)
+            pos_hint: {'x': -0.25, "top": 0.85}
+        
+        TextInput:
+            multiline: False
+            id: aircraft_y
+            pos_hint: {'x': 0.2, "top": 0.3}
+            size_hint: (None, None)
+            width: 100
+            height: 50
 
         Label:
             text: "Aircraft Direction"

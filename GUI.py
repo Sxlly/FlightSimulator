@@ -101,7 +101,8 @@ class Main_Screen(Screen):
     aircraft_name = ObjectProperty(None)
     aircraft_speed = ObjectProperty(None)
     aircraft_alt = ObjectProperty(None)
-    aircraft_pos = ObjectProperty(None)
+    aircraft_x = ObjectProperty(None)
+    aircraft_y = ObjectProperty(None)
     aircraft_dir = ObjectProperty(None)
     aircraft_entered_label = ObjectProperty(None)
     nav_plot = ObjectProperty(None)
@@ -116,7 +117,8 @@ class Main_Screen(Screen):
             self.aircraft_name.text,
             self.aircraft_speed.text,
             self.aircraft_alt.text,
-            self.aircraft_pos.text,
+            self.aircraft_x.text,
+            self.aircraft_y.text,
             self.aircraft_dir.text
         )
     
@@ -134,7 +136,8 @@ class Main_Screen(Screen):
         self.aircraft_name.text = ""
         self.aircraft_speed.text = ""
         self.aircraft_alt.text = ""
-        self.aircraft_pos.text = ""
+        self.aircraft_x.text = ""
+        self.aircraft_y.text - ""
         self.aircraft_dir.text = ""
     
     def navto_intro(self):
