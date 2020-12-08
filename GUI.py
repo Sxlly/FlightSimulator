@@ -17,6 +17,16 @@ from kivy.core.window import Window
 from kivy.uix.image import Image
 from kivy.uix.popup import Popup
 
+"""Importing Additional Libraries"""
+
+import matplotlib.pyplot as plt 
+import numpy as np
+import math
+import time
+import os
+import sys
+
+
 """Importing The Backend Classes"""
 from Simulation import Simulation
 from main import Aircraft
@@ -234,3 +244,5 @@ class MyApp(App):
 # if name is main then do the following (execution line)
 if __name__ == "__main__":
     MyApp().run()
+
+    
