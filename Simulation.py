@@ -22,7 +22,7 @@ class Simulation():
 
     def __init__(self):
 
-        self.fn = "" #passing given file name of dtype string to class variable
+        self.fn = None #passing given file name of dtype string to class variable
         self.all_aircraft = [] #names of all current aircraft in list form
         self.terrain_col_list = [] #all aircraft & terrain collisions in list form
         self.aircraft_col_list = [] #all aircraft & aircraft collisions in lsit form

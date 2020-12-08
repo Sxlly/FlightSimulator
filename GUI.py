@@ -115,8 +115,8 @@ class Main_Screen(Screen):
 
         curr_simulation.add_aircraft_kivy(
             self.aircraft_name.text,
-            self.aircraft_speed.text,
             self.aircraft_alt.text,
+            self.aircraft_speed.text,
             self.aircraft_x.text,
             self.aircraft_y.text,
             self.aircraft_dir.text
@@ -137,7 +137,7 @@ class Main_Screen(Screen):
         self.aircraft_speed.text = ""
         self.aircraft_alt.text = ""
         self.aircraft_x.text = ""
-        self.aircraft_y.text - ""
+        self.aircraft_y.text = ""
         self.aircraft_dir.text = ""
     
     def navto_intro(self):
