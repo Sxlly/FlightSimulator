@@ -180,6 +180,7 @@ class Plot_Screen(Screen):
         hours = int(self.flight_hours.text) 
 
         curr_simulation.run_simulation(hours)
+
     
     def navto_intro(self):
         sm.current = "intro"
@@ -244,5 +245,8 @@ class MyApp(App):
 # if name is main then do the following (execution line)
 if __name__ == "__main__":
     MyApp().run()
+
+    plt.show()
+
 
     
