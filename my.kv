@@ -38,7 +38,7 @@
     BoxLayout:
         orientation: "vertical"
         size: root.width, root.height
-        padding: 20
+        padding: 30
         spacing: 5
 
         Image:
@@ -104,8 +104,8 @@
 
         Label:
             text: "Aircraft Name"
-            color: (0,100/255.0,150/255.0,0.8)
-            pos_hint: {'x': -0.34, "top": 1.45}
+            color: (255/255.0,255/255.0,255/255.0,0.8)
+            pos_hint: {'x': 0, "top": 1.45}
         
         TextInput:
             multiline: False
@@ -114,8 +114,8 @@
         
         Label:
             text: "Aircraft Speed"
-            color: (0,100/255.0,150/255.0,0.8)
-            pos_hint: {'x': -0.34, "top": 1.25}
+            color: (255/255.0,255/255.0,255/255.0,0.8)
+            pos_hint: {'x': 0, "top": 1.25}
         
         TextInput:
             multiline: False
@@ -124,8 +124,8 @@
 
         Label:
             text: "Aircraft Altitude"
-            color: (0,100/255.0,150/255.0,0.8)
-            pos_hint: {'x': -0.34, "top": 1.05}
+            color: (255/255.0,255/255.0,255/255.0,0.8)
+            pos_hint: {'x': 0, "top": 1.05}
         
         TextInput:
             multiline: False
@@ -135,13 +135,13 @@
         Label:
             text: "Aircraft X Coordinate"
             font_size: 20
-            color: (0,100/255.0,150/255.0,0.8)
-            pos_hint: {'x': -0.42, "top": 0.85}
+            color: (255/255.0,255/255.0,255/255.0,0.8)
+            pos_hint: {'x': -0.15, "top": 0.85}
         
         TextInput:
             multiline: False
             id: aircraft_x
-            pos_hint: {'x': 0.05, "top": 0.3}
+            pos_hint: {'x': -0.10, "top": 0.3}
             size_hint: (None, None)
             width: 100
             height: 50
@@ -149,21 +149,21 @@
         Label:
             text: "Aircraft Y Coordinate"
             font_size: 20
-            color: (0,100/255.0,150/255.0,0.8)
-            pos_hint: {'x': -0.25, "top": 0.85}
+            color: (255/255.0,255/255.0,255/255.0,0.8)
+            pos_hint: {'x': 0.15, "top": 0.85}
         
         TextInput:
             multiline: False
             id: aircraft_y
-            pos_hint: {'x': 0.2, "top": 0.3}
+            pos_hint: {'x': 0.10, "top": 0.3}
             size_hint: (None, None)
             width: 100
             height: 50
 
         Label:
             text: "Aircraft Direction"
-            color: (0,100/255.0,150/255.0,0.8)
-            pos_hint: {'x': -0.34, "top": 0.65}
+            color: (255/255.0,255/255.0,255/255.0,0.8)
+            pos_hint: {'x': 0, "top": 0.65}
         
         TextInput:
             multiline: False
@@ -178,7 +178,7 @@
         Button:
             text: "Enter"
             background_normal: ''
-            background_color: (0,50/255.0,30/255.0,0.75)
+            background_color: (255/255.0,255/255.0,255/255.0,0.8)
             pos_hint: {'x': 0.40, "top": 0.40}
             on_press: root.main_enter()
         
@@ -186,7 +186,7 @@
             id: nav_intro
             text: "To Intro Screen"
             background_normal: ''
-            background_color: (17/255.0,168/255.0,40/255.0,0.75)
+            background_color: (255/255.0,255/255.0,255/255.0,0.8)
             pos_hint: {'x': 0.40, "top": 0.85}
             on_press: root.navto_intro()
         
@@ -194,7 +194,7 @@
             id: nav_plot
             text: "To Plot Screen"
             background_normal: ''
-            background_color: (17/255.0,168/255.0,40/255.0,0.75)
+            background_color: (255/255.0,255/255.0,255/255.0,0.8)
             pos_hint: {'x': 0.40, "top": 0.80}
             on_press: root.navto_plot()
 
